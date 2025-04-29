@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:48:41 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/04/28 15:33:19 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/04/29 15:31:29 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ t_token_list	*lexer(char *input)
     tokens->head = NULL;
     tokens->last = NULL;
     index = 0;
+    if (check_unclosed_quote(input))
+    {
+        printf("minishell: syntax error: unclosed quotes\n");
+        return (NULL);
+    }
     while (input[index])
     {
         if (is_space(input[index]))

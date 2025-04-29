@@ -6,7 +6,7 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 10:50:04 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/04/29 14:12:02 by eric             ###   ########.fr       */
+/*   Updated: 2025/04/29 15:09:40 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int main(void)
 		t_token_list *tokens = lexer(shell.input);
 		// === DEBUG ===
 		print_tokens(tokens);
-		// === FREE ===
 		free_tokens(tokens->head);
 		free(tokens);
 		free(shell.input);

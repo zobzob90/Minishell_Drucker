@@ -6,7 +6,7 @@
 /*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 10:39:13 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/04/29 13:46:22 by eric             ###   ########.fr       */
+/*   Updated: 2025/04/29 15:57:50 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,16 @@ typedef enum	e_token_type
 	APPEND, // >>
 	HEREDOC, // <<
 }	t_token_type;
-
+/**************************/
+/******PARSING STRUCT******/
+/**************************/
+typedef struct t_command
+{
+	char	**args; // arguments
+	int		redir_in; // redirection d'entrée
+	int		redir_out; // redirection de sortie
+	struct s_command *next; // prochaine commande
+} t_command;
 /**************************/
 /*******LEXER STRUCT*******/
 /**************************/
@@ -70,6 +79,7 @@ int				is_space(char c);
 int				is_token(char *str, int i);
 t_lexer			*create_token(char *value, t_token_type type);
 void			add_token_to_list(t_token_list *list, t_lexer *new_token);
+int				check_unclosed_quote(const char *input);
 void			handle_word(t_token_list *tokens, char *input, int *index);
 /*PARSING*/
 

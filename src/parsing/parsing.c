@@ -3,12 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:48:27 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/04/24 13:48:36 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:11:22 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+t_command	parser(t_token_list *tokens)
+{
+	t_c
+}
