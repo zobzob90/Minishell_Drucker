@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:39:55 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/04/28 15:27:55 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/04/29 14:04:00 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	handle_word(t_token_list *tokens, char *input, int *index)
 {
 	int		start;
 	t_lexer	*new_token;
-	
+
 	start = *index;
 	while (input[*index] && !is_space(input[*index]) && !is_token(input ,*index))
 	{
@@ -61,7 +61,7 @@ void	handle_word(t_token_list *tokens, char *input, int *index)
 			quote = input[*index];
 			(*index)++;
 			while (input[*index] && input[*index] != quote)
-				(*index++);
+				(*index)++;
 			if (input[*index] == quote)
 				(*index)++;
 		}

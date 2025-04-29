@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 10:39:13 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/04/28 14:19:50 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/04/29 13:46:22 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int				is_space(char c);
 int				is_token(char *str, int i);
 t_lexer			*create_token(char *value, t_token_type type);
 void			add_token_to_list(t_token_list *list, t_lexer *new_token);
+void			handle_word(t_token_list *tokens, char *input, int *index);
 /*PARSING*/
 
 /*PARS_UTILS*/
