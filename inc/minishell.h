@@ -82,5 +82,6 @@ void			handle_word(t_token_list *tokens, char *input, int *index);
 /*MAIN*/
 
 /*UTILS*/
+char	*get_env_value(const char *name);
 
 #endif

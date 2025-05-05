@@ -51,10 +51,15 @@ char	*join_dollar(char *res, const char *token, int *i)
 	// if (token[*i] == '?')
 	// {
 	// 	val = ft_itoa(g_exit_status)
+		//(*i)++;
 	// }
+	// else
+	// {
 	start = *i;
 	while (ft_isalnum(token[*i]) || token[*i] == '_')
 		(*i)++;
 	key = ft_substr(token, start, *i - start);
-	val
+	val = get_env_value(key);
+	free(key);
+	//}
 }

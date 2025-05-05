@@ -48,3 +48,4 @@ void    expand_all_tokens(t_lexer *head)
         head = head->next;
     }
 }
+
