@@ -28,9 +28,11 @@ char	*get_env_value(const char *name)
 	char	*value;
 	
 	len = ft_strlen(name);
+	printf("len = %d\n", len);
 	value = getenv(name);
+	printf("getenv = %s\n", value);
 	if (!value)
 		return ("");
 	else
-		return (value + len + 1);
+		return (value);
 }

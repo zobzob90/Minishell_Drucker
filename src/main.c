@@ -64,6 +64,7 @@ int main(void)
 		// === DEBUG ===
 		print_tokens(tokens);
 		expand_all_tokens(tokens->head);
+		printf("Expanded :\n");
 		print_tokens(tokens);
 		// === FREE ===
 		free_tokens(tokens->head);

@@ -44,7 +44,9 @@ char	*join_dollar(char *res, const char *token, int *i)
 	while (ft_isalnum(token[*i]) || token[*i] == '_')
 		(*i)++;
 	key = ft_substr(token, start, *i - start);
+	printf("KEY = %s\n", key);
 	val = get_env_value(key);
+	printf ("Join_dollar = %s\n", val);
 	free(key);
 	//}
 	return (ft_strjoin(res, val));
