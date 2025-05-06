@@ -38,6 +38,7 @@ static char *expand_token(char *token)
 void    expand_all_tokens(t_lexer *head)
 {
     char    *new;
+    
     while (head)
     {
         new = expand_token(head->value);

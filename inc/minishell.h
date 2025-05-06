@@ -51,6 +51,7 @@ typedef struct s_token_list
 	t_lexer	*head;
 	t_lexer *last;
 }	t_token_list;
+
 /**************************/
 /*******SHELL STRUCT*******/
 /**************************/
@@ -58,11 +59,13 @@ typedef struct s_shell
 {
 	int		temp_excode; // code d'exit temporaire
 	int		excode; //code d'exit globale
-	char	*input;	//pointeur vers la ligne de commande acutelle
+	char	*input;	//pointeur vers la ligne de commande actuelle
 	int		last_exit;
 } t_shell;
+
 /*LEXER*/
 t_token_list	*lexer(char *input);
+
 /*LEXER_UTILS*/
 void			free_tokens(t_lexer	*head);
 int				is_quote(char c);
@@ -71,7 +74,19 @@ int				is_token(char *str, int i);
 t_lexer			*create_token(char *value, t_token_type type);
 void			add_token_to_list(t_token_list *list, t_lexer *new_token);
 void			handle_word(t_token_list *tokens, char *input, int *index);
+
 /*PARSING*/
+
+/*EXPANDER*/
+void    		expand_all_tokens(t_lexer *head);
+char			*join_literal(char *res, const char *token, int *i);
+char			*join_double_quote(char *res, const char *token, int *i);
+char			*join_dollar(char *res, const char *token, int *i);
+char			*join_char(char *res, char c);
+
+/*EXPANDER UTILS*/
+char			*get_env_value(const char *name);
+int				ft_isalnum(int character);
 
 /*PARS_UTILS*/
 
@@ -80,8 +95,4 @@ void			handle_word(t_token_list *tokens, char *input, int *index);
 /*EXEC_UTILS*/
 
 /*MAIN*/
-
-/*UTILS*/
-char	*get_env_value(const char *name);
-
 #endif

@@ -63,6 +63,8 @@ int main(void)
 		t_token_list *tokens = lexer(shell.input);
 		// === DEBUG ===
 		print_tokens(tokens);
+		expand_all_tokens(tokens->head);
+		print_tokens(tokens);
 		// === FREE ===
 		free_tokens(tokens->head);
 		free(tokens);

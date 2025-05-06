@@ -13,7 +13,11 @@ SRCS = src/main.c \
        src/parsing/parsing.c \
        src/parsing/pars_utils.c \
        src/exec/exec.c \
-       src/exec/exec_utils.c
+       src/exec/exec_utils.c \
+	   src/expand/exp_utils.c \
+	   src/expand/expand.c \
+	   src/expand/join.c 
+
 
 OBJS = $(SRCS:.c=.o)
 

@@ -20,10 +20,43 @@ char	*join_literal(char *res, const char *token, int *i)
     start = *i;
     while (token[*i] && token[*i] != '\'')
     	(*i)++;
-    res = ft_strjoin(res, fr_substr(token, start, *i - start));
+    res = ft_strjoin(res, ft_substr(token, start, *i - start));
     if (token [*i])
     	(*i)++;
     return (res);
+}
+
+char	*join_dollar(char *res, const char *token, int *i)
+{
+	char	*key;
+	char	*val;
+	int		start;
+
+	(*i)++;
+	// if (token[*i] == '?')
+	// {
+	// 	val = ft_itoa(g_exit_status)
+		//(*i)++;
+	// }  
+	// else
+	// {
+	start = *i;
+	while (ft_isalnum(token[*i]) || token[*i] == '_')
+		(*i)++;
+	key = ft_substr(token, start, *i - start);
+	val = get_env_value(key);
+	free(key);
+	//}
+	return (ft_strjoin(res, val));
+}
+
+char	*join_char(char *res, char c)
+{
+	char	tmp[2];
+
+	tmp[0] = c;
+	tmp[1] = '\0';
+	return (ft_strjoin(res, ft_strdup(tmp)));
 }
 
 char	*join_double_quote(char *res, const char *token, int *i)
@@ -41,25 +74,3 @@ char	*join_double_quote(char *res, const char *token, int *i)
 	return (res);
 }
 
-char	*join_dollar(char *res, const char *token, int *i)
-{
-	char	*key;
-	char	*val;
-	int		start;
-
-	(*i)++;
-	// if (token[*i] == '?')
-	// {
-	// 	val = ft_itoa(g_exit_status)
-		//(*i)++;
-	// }
-	// else
-	// {
-	start = *i;
-	while (ft_isalnum(token[*i]) || token[*i] == '_')
-		(*i)++;
-	key = ft_substr(token, start, *i - start);
-	val = get_env_value(key);
-	free(key);
-	//}
-}
